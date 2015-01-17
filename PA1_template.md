@@ -1,6 +1,11 @@
-# Reproducible Research: Peer Assessment 1
-Brian Weeden  
-Saturday, January 17, 2015  
+---
+title: "Reproducible Research: Peer Assessment 1"
+author: "Brian Weeden"
+date: "Saturday, January 17, 2015"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ##Introduction
 This report will explore a data set of steps taken by an individual over the course of the months of October and November 2012.  The steps taken were recorded by an activity tracking device.
@@ -42,7 +47,7 @@ hist(stepsPerDay$steps, xlab="Steps", main="Histogram of Steps Per Day",
      breaks=10)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Steps per day seem to be fairly normally distributed, with most days ending up slightly over 10,000 steps.  Let's take a look at some the mean and median for steps per day:
 
@@ -73,7 +78,7 @@ qplot(interval, V1, data=stepsByInterval, xlab="Interval",
       ylab="Average Steps") + geom_line()
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 ```r
 stepsByInterval[stepsByInterval$V1==max(stepsByInterval$V1), interval] 
@@ -119,7 +124,7 @@ hist(imputedStepsPerDay$steps, xlab="Steps", main="Histogram of Steps Per
      Day, with Imputed Values", breaks=10)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 ```r
 mean(imputedStepsPerDay$steps)
@@ -150,6 +155,6 @@ xyplot(V1~interval|workday, data=stepsByIntervalWorkdayImputed, type="l",
        xlab="Interval", ylab="Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 You can see a clear difference in pattern here, with the individual getting most of their activity in in the mornings on weekdays, but more spread out throughout the day on weekends.
